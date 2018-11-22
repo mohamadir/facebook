@@ -15,7 +15,7 @@ Route::get('/users/{user_id}/posts','PostController@getPosts');
 Route::post('/users/{user_id}/post','PostController@addPost');
 
 
-//like 
+//like //
 Route::post('/posts/{post_id}/like','PostController@addLike');
 
 //commnet 
