@@ -22,3 +22,9 @@ Route::post('/posts/{post_id}/like','PostController@addLike');
 Route::post('/posts/{post_id}/comment','PostController@addComment');
 Route::get('/posts/{post_id}/comments','PostController@getComments');
 Route::delete('/posts/{post_id}/comments/{comment_id}','PostController@deleteComment');
+
+
+//test
+Route::get('/test',function(){
+    return 'HI';
+});
