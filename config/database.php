@@ -75,7 +75,7 @@ return [
             'sslmode' => 'prefer',
         ],
          'pgsql_production' => [
-            'driver' => 'psqgl',
+            'driver' => 'pgsql',
             'host' => $host,
             'database' => $databse,
             'username' => $username,
