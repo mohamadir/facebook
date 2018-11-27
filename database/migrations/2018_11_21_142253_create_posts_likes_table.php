@@ -32,7 +32,7 @@ class CreatePostsLikesTable extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('user_post_like');
+        Schema::dropIfExists('user_post_like');
 
     }
 }

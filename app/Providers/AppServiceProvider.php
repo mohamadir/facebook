@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,6 +13,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        // Schema::defaultStringLength(191);
     }
 
     /**
@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
+
+        //tech.salametcom@gmail.com
     }
 }

@@ -18,6 +18,12 @@ class PostController extends Controller
     
     public function getPosts(Request $request,$user_id){
        $posts = Post::where('user_id',$user_id)->get();
+
+       foreach($posts as $post){
+           $count = Comment::where('post_id',$post->id)->count();
+           $post['comments_count']= $count;
+       }
+       
        return response()->json(
            [
             'message' => 'OK',
@@ -92,19 +98,22 @@ class PostController extends Controller
        return response()->json(['message' => 'added successfully'],200); 
     }
 
+    public function getAllComments(Request $request){
+        return Comment::get();
+    }
 
      public function getComments(Request $request,$post_id){
         $post = Post::find($post_id);
 
-      if(!$post){
-        return response()->json(['message' => 'post not found !'],404); 
-       }
+        if(!$post){
+            return response()->json(['message' => 'post not found !'],404); 
+        }
 
-       $comments = Comment::where('post_id',$post_id)->get();
+        $comments = Comment::where('post_id',$post_id)->get();
 
-       return response()->json([
-            'message' => 'OK',
-            'comments' => $comments]
+        return response()->json([
+                'message' => 'OK',
+                'comments' => $comments]
         ,200);  
      }
 

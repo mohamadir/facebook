@@ -22,3 +22,20 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Post::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence($nbWords = 3, $variableNbWords = true),
+        'body' => $faker->sentence($nbWords = 16, $variableNbWords = true) ,
+        'user_id' => $faker->numberBetween(0,100),
+        'image' => $faker->imageUrl(640,480)
+        ];
+});
+
+$factory->define(App\Comment::class, function (Faker $faker) {
+    return [
+        'user_id' => $faker->numberBetween(0,50),
+        'body' => $faker->sentence($nbWords = 3, $variableNbWords = true) ,
+        'post_id' => $faker->numberBetween(0,100)
+        ];
+});

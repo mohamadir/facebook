@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +12,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/register', function () {
+    return view('register');
 });
+
+Route::get('/', 'UserController@show');
+
+
+Route::get('/user', function () {
+    return view('user');
+});
+
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
